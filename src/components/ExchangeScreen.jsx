@@ -9,6 +9,7 @@ const ExchangeScreen = () => {
   const [currentFrame, setCurrentFrame] = useState(1000);
   const [clicks, setClicks] = useState(0);
   const clickTimestamps = useRef([]);
+  console.log(`../assets/animation/${currentFrame}.png`);
 
   const totalFrames = 230; // Frames from 1000 to 1229
   const lightSlapFrames = 20; // Play 10 frames for a light slap
@@ -73,7 +74,7 @@ const ExchangeScreen = () => {
       <div className="mt-2 flex flex-col items-center ">
         <div className="relative w-full max-w-screen-md mb-2">
           <img
-            src={`/compressedImages/${currentFrame}.png`}
+            src={`../src/assets/animation/${currentFrame}.png`}
             alt="Character"
             className="w-full h-auto object-contain"
             onClick={handleSlap}
