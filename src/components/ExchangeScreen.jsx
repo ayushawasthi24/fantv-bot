@@ -19,6 +19,7 @@ const ExchangeScreen = () => {
   const slapWindow = 2000; // Time window in ms to count clicks for the slap intensity
 
   const frameInterval = useRef(null);
+  const preloadedImages = useRef([]);
 
   // Function to handle slaps and click intensity
   const handleSlap = () => {
@@ -66,6 +67,21 @@ const ExchangeScreen = () => {
     }, 1000 / fps);
   };
 
+  useEffect(() => {
+    const preloadImages = () => {
+      const totalFramesToPreload = fullAnimationEnd - fullAnimationStart + 1;
+      for (let i = fullAnimationStart; i <= fullAnimationEnd; i++) {
+        const img = new Image();
+        img.src = `/animation/${i}.png`;
+        img.onload = () => {
+          preloadedImages.current[i] = img;
+        };
+      }
+    };
+
+    preloadImages();
+  }, []);
+
   return (
     <div>
       <ProfileHeader username="Ayush" role="CEO" />
@@ -73,7 +89,10 @@ const ExchangeScreen = () => {
       <div className="mt-2 flex flex-col items-center ">
         <div className="relative w-full max-w-screen-md mb-2">
           <img
-            src={`/animation/${currentFrame}.png`}
+            src={
+              preloadedImages.current[currentFrame]?.src ||
+              `/animation/${currentFrame}.png`
+            }
             alt="Character"
             className="w-full h-auto object-contain"
             onClick={handleSlap}
