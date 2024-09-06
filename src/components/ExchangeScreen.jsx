@@ -9,7 +9,6 @@ const ExchangeScreen = () => {
   const [currentFrame, setCurrentFrame] = useState(1000);
   const [clicks, setClicks] = useState(0);
   const clickTimestamps = useRef([]);
-  console.log(`../assets/animation/${currentFrame}.png`);
 
   const totalFrames = 230; // Frames from 1000 to 1229
   const lightSlapFrames = 20; // Play 10 frames for a light slap
