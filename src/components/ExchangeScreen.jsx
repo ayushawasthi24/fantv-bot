@@ -74,7 +74,7 @@ const ExchangeScreen = () => {
       <div className="mt-2 flex flex-col items-center ">
         <div className="relative w-full max-w-screen-md mb-2">
           <img
-            src={`../src/assets/animation/${currentFrame}.png`}
+            src={`/animation/${currentFrame}.png`}
             alt="Character"
             className="w-full h-auto object-contain"
             onClick={handleSlap}
