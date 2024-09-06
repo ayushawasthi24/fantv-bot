@@ -1,21 +1,30 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 const StatsCard = ({ profitPerTap, coinsToLevelUp, profitPerHour }) => {
   return (
-    <div className="flex justify-around bg-gray-900 text-white py-4">
+    <motion.div
+      className="flex justify-around bg-gray-700 text-white p-2 rounded-lg shadow-lg"
+    >
       <div className="flex flex-col items-center">
-        <span>Profit per tap</span>
-        <span className="text-yellow-400">${profitPerTap}</span>
+        <span className="text-gray-400 text-sm">Profit per tap</span>
+        <span className="text-yellow-400 text-xl font-semibold">
+          ${profitPerTap}
+        </span>
       </div>
       <div className="flex flex-col items-center">
-        <span>Coins to level up</span>
-        <span className="text-yellow-400">{coinsToLevelUp}K</span>
+        <span className="text-gray-400 text-sm">Coins to level up</span>
+        <span className="text-yellow-400 text-xl font-semibold">
+          {coinsToLevelUp}K
+        </span>
       </div>
       <div className="flex flex-col items-center">
-        <span>Profit per hour</span>
-        <span className="text-yellow-400">${profitPerHour}</span>
+        <span className="text-gray-400 text-sm">Profit per hour</span>
+        <span className="text-yellow-400 text-xl font-semibold">
+          ${profitPerHour}
+        </span>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
