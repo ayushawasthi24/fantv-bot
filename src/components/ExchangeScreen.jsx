@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import ProfileHeader from "./ProfileHeader";
 import StatsCard from "./StatsCard";
 import AvatarSection from "./AvatarSection";
+import ModelViewer from "./ModelViewer";
 
 const ExchangeScreen = () => {
   const [coinCount, setCoinCount] = useState(101);
@@ -87,8 +88,8 @@ const ExchangeScreen = () => {
       <ProfileHeader username="Ayush" role="CEO" />
       <StatsCard profitPerTap="1" coinsToLevelUp="5" profitPerHour="1" />
       <div className="mt-2 flex flex-col items-center ">
-        <div className="relative w-full max-w-screen-md mb-2">
-          <img
+        <div className="relative w-screen h-screen mb-2">
+          {/* <img
             src={
               preloadedImages.current[currentFrame]?.src ||
               `/animation/${currentFrame}.png`
@@ -96,7 +97,8 @@ const ExchangeScreen = () => {
             alt="Character"
             className="w-full h-auto object-contain"
             onClick={handleSlap}
-          />
+          /> */}
+          <ModelViewer />
         </div>
         <AvatarSection
           coinCount={coinCount.toString()}
